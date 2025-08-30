@@ -5,5 +5,5 @@ Download the whitepaper for Canary Historian or the PI System.
 
 | **Canary Historian**    | **PI System**  | 
 | :---------------------- | :------------  | 
-| C# example              | [C# example](https://github.com/GTSGroupAustralia/SampleCode/tree/main/GSharp.PythonRegressionAnalysis)  | 
+| C# example              | C# example     | 
 | VB.NET example          | VB.NET example | 
