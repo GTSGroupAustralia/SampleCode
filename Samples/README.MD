@@ -1,9 +1,2 @@
-# Code Samples
-Here you can download code samples for specific application use cases with gSharp for either the AVEVA PI System or the Canary Labs enterprise historian.
-## Running Python scripts in gSharp
-Download the whitepaper for Canary Historian or the PI System.
-
-| **Canary Historian**    | **PI System**  | 
-| :---------------------- | :------------  | 
-| C# example              | C# example     | 
-| VB.NET example          | VB.NET example | 
+## Code Samples
+After downloading any of these sample projects you will need to restore the Nuget packages prior to building the project.
