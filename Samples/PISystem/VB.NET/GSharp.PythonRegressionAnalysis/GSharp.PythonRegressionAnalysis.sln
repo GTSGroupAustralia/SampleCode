@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36414.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "GSharp.Testbed", "GSharp.Testbed\GSharp.Testbed.vbproj", "{A2F09A75-32C5-4E11-B69A-CFE93D544C56}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "GSharp.PythonRegressionAnalysis", "GSharp.PythonRegressionAnalysis\GSharp.PythonRegressionAnalysis.vbproj", "{80D01E92-C1F2-4F5F-A6AD-03481CF76B3A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A2F09A75-32C5-4E11-B69A-CFE93D544C56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2F09A75-32C5-4E11-B69A-CFE93D544C56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2F09A75-32C5-4E11-B69A-CFE93D544C56}.Debug|x64.ActiveCfg = Debug|x64
+		{A2F09A75-32C5-4E11-B69A-CFE93D544C56}.Debug|x64.Build.0 = Debug|x64
+		{A2F09A75-32C5-4E11-B69A-CFE93D544C56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2F09A75-32C5-4E11-B69A-CFE93D544C56}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2F09A75-32C5-4E11-B69A-CFE93D544C56}.Release|x64.ActiveCfg = Release|x64
+		{A2F09A75-32C5-4E11-B69A-CFE93D544C56}.Release|x64.Build.0 = Release|x64
+		{80D01E92-C1F2-4F5F-A6AD-03481CF76B3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80D01E92-C1F2-4F5F-A6AD-03481CF76B3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80D01E92-C1F2-4F5F-A6AD-03481CF76B3A}.Debug|x64.ActiveCfg = Debug|x64
+		{80D01E92-C1F2-4F5F-A6AD-03481CF76B3A}.Debug|x64.Build.0 = Debug|x64
+		{80D01E92-C1F2-4F5F-A6AD-03481CF76B3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80D01E92-C1F2-4F5F-A6AD-03481CF76B3A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80D01E92-C1F2-4F5F-A6AD-03481CF76B3A}.Release|x64.ActiveCfg = Release|x64
+		{80D01E92-C1F2-4F5F-A6AD-03481CF76B3A}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2BAA380A-3BB2-438E-96E0-9B218D2AAB40}
+	EndGlobalSection
+EndGlobal
