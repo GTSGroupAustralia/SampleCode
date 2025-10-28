@@ -1,0 +1,9 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/Samples/PISystem/CSharp/GSharp.PythonRegressionAnalysis/.vs/GSharp.PythonRegressionAnalysis/CopilotIndices/17.14.1290.42047
+/Samples/PISystem/CSharp/GSharp.PythonRegressionAnalysis/.vs/GSharp.PythonRegressionAnalysis/FileContentIndex
+/Samples/PISystem/CSharp/GSharp.PythonRegressionAnalysis/GSharp.PythonRegressionAnalysis/obj/Debug
+/Samples/PISystem/CSharp/GSharp.PythonRegressionAnalysis/GSharp.Testbed/obj/Debug
+/Samples/PISystem/CSharp/GSharp.PythonRegressionAnalysis/.vs/GSharp.PythonRegressionAnalysis/v17
