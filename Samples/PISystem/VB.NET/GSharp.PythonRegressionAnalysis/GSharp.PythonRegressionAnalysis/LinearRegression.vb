@@ -7,8 +7,10 @@ Imports GHost.GSharp.Core.AF.Data
 Imports GHost.GSharp.Core.Attributes
 Imports GHost.GSharp.Core.Enums
 Imports GHost.GSharp.Core.Interfaces.Model
+Imports GHost.GSharp.PythonNet.Calculation
 Imports OSIsoft.AF.Asset
 Imports Python.Runtime
+
 
 ''' <summary>
 ''' A gSharp execution module.
@@ -16,6 +18,8 @@ Imports Python.Runtime
 ''' </summary>
 Public Class LinearRegression
     Inherits CalculationModuleAFBase
+
+    Private _PythonHost As PythonHost
 
     <PointDataDirection(DataDirection.Input)>
     Public Property ProcessFeedrate As AFDataPoint
@@ -29,8 +33,7 @@ Public Class LinearRegression
     Public Overrides Sub Initialize()
         IsSequential = True
         ' Set the following to the actual path of the Python interpreter on the local machine
-        Dim pythonDll As String = "C:\Program Files\Python\Python312\python312.dll"
-        Environment.SetEnvironmentVariable("PYTHONNET_PYDLL", pythonDll)
+        _PythonHost = InitializePython()
     End Sub
 
     Public Overrides Sub Execute(schedule As ISchedule, timestamp As Date, cancelToken As CancellationToken)
@@ -61,10 +64,22 @@ Public Class LinearRegression
             Dim pyDataset = JsonSerializer.Serialize(pyDictionary)
             Dim code As String = ReadPythonScript("LinearRegression.py")
 
-            Dim result(1) As Double
-            result = RunPythonCodeAndReturn(code, pyDataset)
-            Intercept.Value = result(0)
-            Slope.Value = result(1)
+            Dim pySlope As Object = Nothing
+            Dim pyIntercept As Object = Nothing
+
+            Using scope As ModuleScope = _PythonHost.CreateScope()
+                Dim pyInputData As PyObject = pyDataset.ToPython()
+                scope.Set("data", pyInputData)
+                scope.Exec(code)
+                scope.TryGet("slope", pySlope)
+                scope.TryGet("intercept", pyIntercept)
+            End Using
+
+            Dim slopeValue As Double = Convert.ToDouble(pySlope)
+            Dim interceptValue As Double = Convert.ToDouble(pyIntercept)
+
+            Intercept.Value = interceptValue
+            Slope.Value = slopeValue
 
         Catch ex As Exception
 
@@ -99,47 +114,6 @@ Public Class LinearRegression
     '        End Using
     '    End Using
     'End Function
-
-    Private Function RunPythonCodeAndReturn(pycode As String, dataset As String) As Double()
-        Try
-            PythonEngine.Initialize()
-
-            Dim returnedVariable(1) As Double
-
-            ' Get the Python Global Interpreter Lock
-            Using (Py.GIL)
-                Using scope = Py.CreateScope()
-                    ' Convert the JSON dataset to a Python object
-                    Dim pyInputData As PyObject = dataset.ToPython()
-                    ' Insert the Python object containing the data into the Python scope
-                    scope.Set("data", pyInputData)
-                    ' Now execute the script
-                    scope.Exec(pycode)
-
-                    Dim pySlope As PyObject = Nothing
-                    Dim pyIntercept As PyObject = Nothing
-
-                    ' Retrieve the results variables from the Python scope as .NET objects
-                    scope.TryGet("slope", pySlope)
-                    scope.TryGet("intercept", pyIntercept)
-                    returnedVariable(0) = Convert.ToDouble(pySlope)
-                    returnedVariable(1) = Convert.ToDouble(pyIntercept)
-                End Using
-            End Using
-
-            ' Remember to shut down the Python engine when we're done
-            PythonEngine.Shutdown()
-            Return returnedVariable
-
-        Catch ex As Exception
-            Log.Error(ex)
-
-            ' Make sure to dispose of objects and shutdown the Python engine
-            Py.GIL().Dispose()
-            PythonEngine.Shutdown()
-            Throw
-        End Try
-    End Function
 
     Public Overrides Sub Dispose()
         ' Place any class-level disposal code in here.
