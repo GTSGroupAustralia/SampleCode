@@ -32,7 +32,7 @@ Public Class LinearRegression
 
     Public Overrides Sub Initialize()
         IsSequential = True
-        ' Set the following to the actual path of the Python interpreter on the local machine
+        ' Set the following to the actual path of the Python interpreter on the local machine 
         _PythonHost = InitializePython()
     End Sub
 
@@ -82,7 +82,7 @@ Public Class LinearRegression
             Slope.Value = slopeValue
 
         Catch ex As Exception
-
+            Log.Error("An error occurred during Linear Regression calculation: ", ex.Message)
         End Try
     End Sub
 
