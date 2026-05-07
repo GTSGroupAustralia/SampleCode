@@ -1,4 +1,4 @@
-﻿Imports System.IO
+Imports System.IO
 Imports System.Reflection
 Imports System.Text.Json
 Imports System.Threading
@@ -9,8 +9,8 @@ Imports GHost.GSharp.Core.Enums
 Imports GHost.GSharp.Core.Interfaces.Model
 Imports GHost.GSharp.PythonNet.Calculation
 Imports OSIsoft.AF.Asset
+Imports OSIsoft.AF.Time
 Imports Python.Runtime
-
 
 ''' <summary>
 ''' A gSharp execution module.
@@ -22,31 +22,30 @@ Public Class LinearRegression
     Private _PythonHost As PythonHost
 
     <PointDataDirection(DataDirection.Input)>
-    Public Property ProcessFeedrate As AFDataPoint
+    Public Property ProcessFeedrate As AFAttrFloatPoint
 
     <PointDataDirection(DataDirection.Output)>
-    Public Property Intercept As AFDataPoint
+    Public Property Intercept As AFAttrFloatPoint
 
     <PointDataDirection(DataDirection.Output)>
-    Public Property Slope As AFDataPoint
+    Public Property Slope As AFAttrFloatPoint
+
 
     Public Overrides Sub Initialize()
-        IsSequential = True
-        ' Set the following to the actual path of the Python interpreter on the local machine 
         _PythonHost = InitializePython()
     End Sub
 
     Public Overrides Sub Execute(schedule As ISchedule, timestamp As Date, cancelToken As CancellationToken)
         Try
             ' Depending on requirements, data can be retrieved using one of several options:
-            ' either the built-in RecordedValues or SampledValues methods of AFDataPoint,
+            ' either the built-in RecordedValues or InterpolatedValues methods of AFAttrxxxPoint.Data,
             ' or using the underlying AFSDK Summaries method to get averaged data
 
             ' Uncomment the code below to use the RecordedValues method for raw archive data. Change the time range as needed.
-            'Dim tsDataset As AFValues = ProcessFeedrate.RecordedValues("*-8h", "*")
+            'Dim tsDataset As AFValues = ProcessFeedrate.Data.RecordedValues("*-8h", "*", AFBoundaryType.Inside, Nothing)
 
-            ' Uncomment the code below to use the SampledValues method for evenly spaced interpolated data. Change the time range and sampling interval as needed.
-            Dim tsDataset As AFValues = ProcessFeedrate.SampledValues("*-8h", "*", "5m")
+            ' Uncomment the code below to use the InterpolatedValues method for evenly spaced interpolated data. Change the time range and sampling interval as needed.
+            Dim tsDataset As AFValues = ProcessFeedrate.Data.InterpolatedValues("*-8h", "*", New AFTimeSpan(0, 0, 0, 0, 5), Nothing, Nothing, True)
 
             ' Uncomment the code below to use averaged data over the time range. Change the time range and calculation interval as needed.
             'Dim tsDataset As New AFValues
@@ -75,8 +74,8 @@ Public Class LinearRegression
                 scope.TryGet("intercept", pyIntercept)
             End Using
 
-            Dim slopeValue As Double = Convert.ToDouble(pySlope)
-            Dim interceptValue As Double = Convert.ToDouble(pyIntercept)
+            Dim slopeValue As Single = Convert.ToSingle(pySlope)
+            Dim interceptValue As Single = Convert.ToSingle(pyIntercept)
 
             Intercept.Value = interceptValue
             Slope.Value = slopeValue
@@ -87,7 +86,7 @@ Public Class LinearRegression
     End Sub
 
     Private Function ReadPythonScript(fileName As String) As String
-        Dim assembly As Assembly = Assembly.GetExecutingAssembly()
+        Dim assembly As Assembly = assembly.GetExecutingAssembly()
         Dim resourcePath As String = fileName
 
         resourcePath = assembly.GetManifestResourceNames().Single(Function(str) str.EndsWith(fileName))
