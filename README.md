@@ -6,4 +6,4 @@ Download the whitepaper for Canary Historian or the PI System.
 | **Canary Historian**    | **PI System**  | 
 | :---------------------- | :------------  | 
 | [C# example](Samples/Canary/CSharp/GSharp.PythonRegressionAnalysis)              | [C# example](Samples/PISystem/CSharp/GSharp.PythonRegressionAnalysis)     | 
-| VB.NET example          | [VB.NET example](Samples/PISystem/VB.NET/GSharp.PythonRegressionAnalysis) | 
+| [VB.NET example](Samples/Canary/VB.NET/GSharp.PythonRegressionAnalysis)          | [VB.NET example](Samples/PISystem/VB.NET/GSharp.PythonRegressionAnalysis) | 
