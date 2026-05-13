@@ -1,0 +1,112 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <OutputType>Library</OutputType>
+    <RootNamespace>GSharp.PythonRegressionAnalysis</RootNamespace>
+    <AssemblyName>GSharp.PythonRegressionAnalysis</AssemblyName>
+    <LangVersion>latest</LangVersion>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <Deterministic>true</Deterministic>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <AssemblyTitle>GSharp.PythonRegressionAnalysis</AssemblyTitle>
+    <AssemblyCompany></AssemblyCompany>
+    <AssemblyProduct>GSharp.PythonRegressionAnalysis</AssemblyProduct>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="PythonScripts\LinearRegression.py" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Reference Include="GHost.Core">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(GSHARPBIN)\GHost.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="GHost.GSharp.AssemblyHost.Core">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(GSHARPBIN)\GHost.GSharp.AssemblyHost.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="GHost.GSharp.Calculation">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(GSHARPBIN)\GHost.GSharp.Calculation.dll</HintPath>
+    </Reference>
+    <Reference Include="GHost.GSharp.Common">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(GSHARPBIN)\GHost.GSharp.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="GHost.GSharp.Comms">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(GSHARPBIN)\GHost.GSharp.Comms.dll</HintPath>
+    </Reference>
+    <Reference Include="GHost.GSharp.Component">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(GSHARPBIN)\GHost.GSharp.Component.dll</HintPath>
+    </Reference>
+    <Reference Include="GHost.GSharp.Core">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(GSHARPBIN)\GHost.GSharp.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="GHost.GSharp.Logging.NLog">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(GSHARPBIN)\GHost.GSharp.Logging.NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="GHost.GSharp.Calculation.CanaryLabs">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(GSHARPBIN)\GHost.GSharp.Calculation.CanaryLabs.dll</HintPath>
+    </Reference>
+    <Reference Include="GHost.GSharp.Core.CanaryLabs">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(GSHARPBIN)\GHost.GSharp.Core.CanaryLabs.dll</HintPath>
+    </Reference>
+    <Reference Include="GHost.Core.CanaryLabs">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(GSHARPBIN)\GHost.Core.CanaryLabs.dll</HintPath>
+    </Reference>
+    <Reference Include="GHost.Core.CanaryLabs.Contracts">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(GSHARPBIN)\GHost.Core.CanaryLabs.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="GHost.GSharp.Plugins.CanaryLabs">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(GSHARPBIN)\GHost.GSharp.Plugins.CanaryLabs.dll</HintPath>
+    </Reference>
+    <Reference Include="GHost.GSharp.PythonNet">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(GSHARPBIN)\GHost.GSharp.PythonNet.dll</HintPath>
+    </Reference>
+    <Reference Include="Python.Runtime">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(GSHARPBIN)\Python.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Text.Json">
+      <HintPath>C:\Program Files\gHost Technology\gSharp\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="LinearRegression.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="PythonScripts\LinearRegression.py" />
+  </ItemGroup>
+  <UsingTask TaskName="GatherArtifactsTask" AssemblyFile="$(GSHARPBIN)\GHost.GSharp.Developer.BuildTasks.dll" />
+  <UsingTask TaskName="CleanArtifactsTask" AssemblyFile="$(GSHARPBIN)\GHost.GSharp.Developer.BuildTasks.dll" />
+  <Target Name="PrepareArtifactsForStaging" AfterTargets="Build">
+    <GatherArtifactsTask Configuration="$(Configuration)" TargetPath="$(TargetPath)" ArtifactsDir="Artifacts" />
+  </Target>
+  <Target Name="CleanArtifacts" AfterTargets="Clean">
+    <CleanArtifactsTask Configuration="$(Configuration)" TargetPath="$(TargetPath)" ArtifactsDir="Artifacts" />
+  </Target>
+</Project>
