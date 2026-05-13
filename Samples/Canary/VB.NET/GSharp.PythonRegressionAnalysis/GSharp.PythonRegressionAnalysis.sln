@@ -1,0 +1,31 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36623.8 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "GSharp.Testbed", "GSharp.Testbed\GSharp.Testbed.vbproj", "{C472BA2F-9345-4CF5-8815-A3914E638C8D}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "GSharp.PythonRegressionAnalysis", "GSharp.PythonRegressionAnalysis\GSharp.PythonRegressionAnalysis.vbproj", "{A62E7177-3ADA-462B-90BE-546BDDF289A1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C472BA2F-9345-4CF5-8815-A3914E638C8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C472BA2F-9345-4CF5-8815-A3914E638C8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C472BA2F-9345-4CF5-8815-A3914E638C8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C472BA2F-9345-4CF5-8815-A3914E638C8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A62E7177-3ADA-462B-90BE-546BDDF289A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A62E7177-3ADA-462B-90BE-546BDDF289A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A62E7177-3ADA-462B-90BE-546BDDF289A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A62E7177-3ADA-462B-90BE-546BDDF289A1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7B0BA546-4AAF-4C2C-8189-8FE9191032E6}
+	EndGlobalSection
+EndGlobal

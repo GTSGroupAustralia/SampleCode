@@ -1,0 +1,300 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>GSharp.Testbed</RootNamespace>
+    <AssemblyName>GSharp.Testbed</AssemblyName>
+    <LangVersion>latest</LangVersion>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <Deterministic>true</Deterministic>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <ApplicationIcon>GSharpConsLogo.ico</ApplicationIcon>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <AssemblyTitle>gSharp Calculation Testbed App</AssemblyTitle>
+    <AssemblyCompany>gHost Technology</AssemblyCompany>
+    <AssemblyProduct>GSharp.Testbed</AssemblyProduct>
+    <AssemblyVersion>1.1.0.0</AssemblyVersion>
+    <FileVersion>1.1.0.0</FileVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="GHost.Core">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(GSHARPBIN)\GHost.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="GHost.Core.NLogProvider">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(GSHARPBIN)\GHost.Core.NLogProvider.dll</HintPath>
+    </Reference>
+    <Reference Include="GHost.GSharp.AssemblyHost.Core">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(GSHARPBIN)\GHost.GSharp.AssemblyHost.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="GHost.GSharp.Calculation">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(GSHARPBIN)\GHost.GSharp.Calculation.dll</HintPath>
+    </Reference>
+    <Reference Include="GHost.GSharp.Calculation.CanaryLabs">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(GSHARPBIN)\GHost.GSharp.Calculation.CanaryLabs.dll</HintPath>
+    </Reference>
+    <Reference Include="GHost.GSharp.Common">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(GSHARPBIN)\GHost.GSharp.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="GHost.GSharp.Comms">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(GSHARPBIN)\GHost.GSharp.Comms.dll</HintPath>
+    </Reference>
+    <Reference Include="GHost.GSharp.Component">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(GSHARPBIN)\GHost.GSharp.Component.dll</HintPath>
+    </Reference>
+    <Reference Include="GHost.GSharp.Core">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(GSHARPBIN)\GHost.GSharp.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="GHost.GSharp.Core.CanaryLabs">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(GSHARPBIN)\GHost.GSharp.Core.CanaryLabs.dll</HintPath>
+    </Reference>
+    <Reference Include="GHost.GSharp.Developer">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(GSHARPBIN)\GHost.GSharp.Developer.dll</HintPath>
+    </Reference>
+    <Reference Include="GHost.GSharp.Logging.NLog">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(GSHARPBIN)\GHost.GSharp.Logging.NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="GHost.Core.CanaryLabs">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(GSHARPBIN)\GHost.Core.CanaryLabs.dll</HintPath>
+    </Reference>
+    <Reference Include="GHost.Core.CanaryLabs.Contracts">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(GSHARPBIN)\GHost.Core.CanaryLabs.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="GHost.GSharp.Plugins.CanaryLabs">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(GSHARPBIN)\GHost.GSharp.Plugins.CanaryLabs.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(GSHARPBIN)\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(GSHARPBIN)\Microsoft.Extensions.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Abstractions">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(GSHARPBIN)\Microsoft.Extensions.Configuration.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Binder">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(GSHARPBIN)\Microsoft.Extensions.Configuration.Binder.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.CommandLine">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(GSHARPBIN)\Microsoft.Extensions.Configuration.CommandLine.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.EnvironmentVariables">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(GSHARPBIN)\Microsoft.Extensions.Configuration.EnvironmentVariables.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.FileExtensions">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(GSHARPBIN)\Microsoft.Extensions.Configuration.FileExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Json">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(GSHARPBIN)\Microsoft.Extensions.Configuration.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.UserSecrets">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(GSHARPBIN)\Microsoft.Extensions.Configuration.UserSecrets.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(GSHARPBIN)\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(GSHARPBIN)\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Diagnostics">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(GSHARPBIN)\Microsoft.Extensions.Diagnostics.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Diagnostics.Abstractions">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(GSHARPBIN)\Microsoft.Extensions.Diagnostics.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileProviders.Abstractions">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(GSHARPBIN)\Microsoft.Extensions.FileProviders.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileProviders.Physical">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(GSHARPBIN)\Microsoft.Extensions.FileProviders.Physical.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileSystemGlobbing">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(GSHARPBIN)\Microsoft.Extensions.FileSystemGlobbing.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Hosting">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(GSHARPBIN)\Microsoft.Extensions.Hosting.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Hosting.Abstractions">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(GSHARPBIN)\Microsoft.Extensions.Hosting.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(GSHARPBIN)\Microsoft.Extensions.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(GSHARPBIN)\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Configuration">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(GSHARPBIN)\Microsoft.Extensions.Logging.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Console">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(GSHARPBIN)\Microsoft.Extensions.Logging.Console.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Debug">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(GSHARPBIN)\Microsoft.Extensions.Logging.Debug.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.EventLog">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(GSHARPBIN)\Microsoft.Extensions.Logging.EventLog.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.EventSource">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(GSHARPBIN)\Microsoft.Extensions.Logging.EventSource.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Options">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(GSHARPBIN)\Microsoft.Extensions.Options.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Options.ConfigurationExtensions">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(GSHARPBIN)\Microsoft.Extensions.Options.ConfigurationExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(GSHARPBIN)\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Identity.Client">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(GSHARPBIN)\Microsoft.Identity.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Abstractions">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(GSHARPBIN)\Microsoft.IdentityModel.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(GSHARPBIN)\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(GSHARPBIN)\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog.Extensions.Logging">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(GSHARPBIN)\NLog.Extensions.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Buffers">
+      <HintPath>$(GSHARPBIN)\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Diagnostics.DiagnosticSource">
+      <HintPath>$(GSHARPBIN)\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.IO">
+      <HintPath>$(GSHARPBIN)\System.IO.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Memory">
+      <HintPath>$(GSHARPBIN)\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors">
+      <HintPath>$(GSHARPBIN)\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime">
+      <HintPath>$(GSHARPBIN)\System.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe">
+      <HintPath>$(GSHARPBIN)\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation">
+      <HintPath>$(GSHARPBIN)\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Algorithms">
+      <HintPath>$(GSHARPBIN)\System.Security.Cryptography.Algorithms.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding">
+      <HintPath>$(GSHARPBIN)\System.Security.Cryptography.Encoding.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives">
+      <HintPath>$(GSHARPBIN)\System.Security.Cryptography.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web">
+      <HintPath>$(GSHARPBIN)\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json">
+      <HintPath>$(GSHARPBIN)\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions">
+      <HintPath>$(GSHARPBIN)\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple">
+      <HintPath>$(GSHARPBIN)\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.Init.vb">
+      <DependentUpon>Program.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Program.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="appsettings.developer.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="GSharpConsLogo.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GSharp.PythonRegressionAnalysis\GSharp.PythonRegressionAnalysis.vbproj"/>
+  </ItemGroup>
+  <UsingTask TaskName="MergeAppConfigTask" AssemblyFile="$(GSHARPBIN)\GHost.GSharp.Developer.BuildTasks.dll" />
+  <Target Name="MergeAppConfig" BeforeTargets="PrepareForBuild">
+    <MergeAppConfigTask TemplateConfigPath="$(GSHARPBIN)\Developer.app.config.template" TargetPath="$(TargetPath)"/>
+  </Target>
+</Project>
